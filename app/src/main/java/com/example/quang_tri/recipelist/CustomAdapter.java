@@ -21,13 +21,13 @@ import io.realm.RealmObject;
  * Created by Quang-Tri on 03/02/2017.
  */
 
-public class CustomAdapter extends RealmBaseAdapter<Recipes> implements ListAdapter {
+public class CustomAdapter extends RealmBaseAdapter<Recipe> implements ListAdapter {
 
     public Activity context;
-    public OrderedRealmCollection<Recipes> recipes;
+    public OrderedRealmCollection<Recipe> recipes;
 
 
-    public CustomAdapter(Activity context, OrderedRealmCollection<Recipes> recipes) {
+    public CustomAdapter(Activity context, OrderedRealmCollection<Recipe> recipes) {
         super(context, recipes);
         this.context = context;
         this.recipes = recipes;
@@ -40,7 +40,7 @@ public class CustomAdapter extends RealmBaseAdapter<Recipes> implements ListAdap
         View rowView = inflater.inflate(R.layout.list_single, null, true);
         TextView text = (TextView) rowView.findViewById(R.id.txt);
 
-        Recipes food = recipes.get(position);
+        Recipe food = recipes.get(position);
         text.setText(food.getName());
 
         return rowView;

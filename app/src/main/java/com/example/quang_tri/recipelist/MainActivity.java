@@ -19,6 +19,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Realm realm = Realm.getDefaultInstance();
 
+        //Adding recipes to the database
+
+        Recipe beans = new Recipe("beans", 10);
+        realm.beginTransaction();
+        realm.copyToRealm(beans);
+        realm.commitTransaction();
+
         setContentView(R.layout.activity_main);
         //CustomAdapter adapter = new CustomAdapter(this, recipes);
         ListView listView = (ListView) findViewById(R.id.list);

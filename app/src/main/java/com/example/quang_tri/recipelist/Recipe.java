@@ -6,10 +6,14 @@ import io.realm.RealmObject;
  * Created by Quang-Tri on 03/02/2017.
  */
 
-public class Recipes extends RealmObject{
+public class Recipe extends RealmObject{
     public String name;
-    public String cookTime;
+    public int cookTime;
 
+    public Recipe(String name, int cookTime){
+        this.name = name;
+        this.cookTime = cookTime;
+    }
 
     public String getName() {
         return name;
@@ -19,11 +23,11 @@ public class Recipes extends RealmObject{
         this.name = name;
     }
 
-    public String getCookTime() {
+    public int getCookTime() {
         return cookTime;
     }
 
-    public void setCookTime(String cookTime) {
+    public void setCookTime(int cookTime) {
         this.cookTime = cookTime;
     }
 }
