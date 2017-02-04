@@ -8,18 +8,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        Realm.init(this);
+        RealmConfiguration config = new RealmConfiguration.Builder().build();
+        Realm.setDefaultConfiguration(config);
+
         setContentView(R.layout.activity_main);
+        CustomAdapter adapter = new CustomAdapter(this, recipes);
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view, int position, long id){
-                final String item = (String) parent.getItemAtPosition(position);
-            }
-        });
+        listView.setAdapter(adapter);
     }
 }
