@@ -6,23 +6,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import io.realm.OrderedRealmCollection;
+import io.realm.RealmBaseAdapter;
 
 /**
  * Created by Quang-Tri on 03/02/2017.
  */
 
-public class CustomAdapter extends ArrayAdapter<Recipes> {
+public class CustomAdapter extends RealmBaseAdapter<Recipes> implements ListAdapter {
 
-    private final Activity context;
-    private ArrayList<Recipes> recipeList;
 
-    public CustomAdapter(Activity context, ArrayList<Recipes> recipes){
-        super(context, 0, recipes);
-        this.context = context;
-        this.recipeList = recipes;
+    public CustomAdapter(OrderedRealmCollection<Recipes> recipes){
+        super(recipes);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class CustomAdapter extends ArrayAdapter<Recipes> {
         View rowView = inflater.inflate(R.layout.list_single, null, true);
         TextView text = (TextView) rowView.findViewById(R.id.txt);
 
-        text.setText(recipeList.get(position).getName());
+        text.setText(recipes.get(position).getName());
 
         return rowView;
     }

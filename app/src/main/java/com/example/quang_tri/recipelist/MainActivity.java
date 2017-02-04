@@ -13,17 +13,17 @@ import io.realm.RealmConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
+    public Realm realm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        Realm.init(this);
-        RealmConfiguration config = new RealmConfiguration.Builder().build();
-        Realm.setDefaultConfiguration(config);
+        realm = Realm.getDefaultInstance();
 
         setContentView(R.layout.activity_main);
-        CustomAdapter adapter = new CustomAdapter(this, recipes);
+        //CustomAdapter adapter = new CustomAdapter(this, recipes);
         ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(adapter);
+        //listView.setAdapter(adapter);
     }
 }
