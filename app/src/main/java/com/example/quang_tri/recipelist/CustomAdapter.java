@@ -2,6 +2,8 @@ package com.example.quang_tri.recipelist;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmBaseAdapter;
+import io.realm.RealmObject;
 
 /**
  * Created by Quang-Tri on 03/02/2017.
@@ -20,9 +23,14 @@ import io.realm.RealmBaseAdapter;
 
 public class CustomAdapter extends RealmBaseAdapter<Recipes> implements ListAdapter {
 
+    public Activity context;
+    public OrderedRealmCollection<Recipes> recipes;
 
-    public CustomAdapter(OrderedRealmCollection<Recipes> recipes){
-        super(recipes);
+
+    public CustomAdapter(Activity context, OrderedRealmCollection<Recipes> recipes) {
+        super(context, recipes);
+        this.context = context;
+        this.recipes = recipes;
     }
 
     @Override
@@ -32,7 +40,8 @@ public class CustomAdapter extends RealmBaseAdapter<Recipes> implements ListAdap
         View rowView = inflater.inflate(R.layout.list_single, null, true);
         TextView text = (TextView) rowView.findViewById(R.id.txt);
 
-        text.setText(recipes.get(position).getName());
+        Recipes food = recipes.get(position);
+        text.setText(food.getName());
 
         return rowView;
     }
