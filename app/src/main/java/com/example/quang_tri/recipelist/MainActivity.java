@@ -13,13 +13,11 @@ import io.realm.RealmConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Realm realm;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        realm = Realm.getDefaultInstance();
+        Realm realm = Realm.getDefaultInstance();
 
         setContentView(R.layout.activity_main);
         //CustomAdapter adapter = new CustomAdapter(this, recipes);
