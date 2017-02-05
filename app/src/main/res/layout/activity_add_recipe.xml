@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_add_recipe"
     android:layout_width="match_parent"
@@ -10,4 +11,81 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.quang_tri.recipelist.AddRecipe">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="60dp"
+                app:srcCompat="@android:drawable/ic_menu_revert"
+                android:id="@+id/returnButton"
+                android:layout_weight="1"
+                android:background="@android:color/background_light"
+                android:layout_height="60dp" />
+
+            <Space
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="270dp" />
+
+            <ImageButton
+                android:layout_width="60dp"
+                app:srcCompat="@android:drawable/ic_menu_add"
+                android:id="@+id/saveRecipeButton"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/background_light"
+                android:layout_height="60dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="230dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="100dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/recipeNameIn"
+                android:layout_weight="1"
+                android:hint="Recipe Name" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/cookTimeIn"
+                android:layout_weight="1"
+                android:hint="Cook Time" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

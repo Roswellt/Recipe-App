@@ -18,8 +18,9 @@ import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static Button searchButton;
-    private static EditText searchString;
+    private Button searchButton;
+    private EditText searchString;
+    private Button addRecipeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +43,23 @@ public class MainActivity extends AppCompatActivity {
         searchButton = (Button) findViewById(R.id.searchButton);
         searchButton.setOnClickListener(
                 new View.OnClickListener(){
-            @Override
+                    @Override
                     public void onClick(View v){
-                Intent intent = new Intent("com.example.quang_tri.recipelist.SearchResults");
-                intent.putExtra("recipe", searchString.getText().toString());
-                startActivity(intent);
+                        Intent intent = new Intent("com.example.quang_tri.recipelist.SearchResults");
+                        intent.putExtra("recipe", searchString.getText().toString());
+                        startActivity(intent);
             }
         });
+        addRecipeButton = (Button) findViewById(R.id.addRecipeButton);
+        addRecipeButton.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intent = new Intent("com.example.quang_tri.recipelist.AddRecipe");
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 
     public void setEditText(){

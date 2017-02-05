@@ -23,7 +23,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddRecipe"></activity>
+        <activity android:name=".AddRecipe">
+            <intent-filter>
+                <action android:name="com.example.quang_tri.recipelist.AddRecipe" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
