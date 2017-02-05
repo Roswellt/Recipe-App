@@ -16,7 +16,6 @@ public class Recipe extends RealmObject{
         this.name = name;
         this.cookTime = cookTime;
         ingredients = new RealmList<Ingredient>();
-
     }
 
     public Recipe(){}
@@ -35,5 +34,13 @@ public class Recipe extends RealmObject{
 
     public void setCookTime(int cookTime) {
         this.cookTime = cookTime;
+    }
+
+    public RealmList<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
     }
 }

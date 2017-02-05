@@ -23,7 +23,6 @@ public class SearchResults extends AppCompatActivity {
         String recipeName = getIntent().getStringExtra("recipe");
         Toast.makeText(SearchResults.this, recipeName, Toast.LENGTH_SHORT).show();
         query.equalTo("name", recipeName);
-        //query.equalTo("name", "beans");
         RealmResults<Recipe> result = query.findAll();
 
 
