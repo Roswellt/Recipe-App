@@ -3,6 +3,7 @@ package com.example.quang_tri.recipelist;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
@@ -19,9 +20,10 @@ public class SearchResults extends AppCompatActivity {
 
         //Testing query
         RealmQuery<Recipe> query = realm.where(Recipe.class);
-        //String recipeName = getIntent().getStringExtra("recipe");
-        //query.equalTo("name", recipeName);
-        query.equalTo("name", "beans");
+        String recipeName = getIntent().getStringExtra("recipe");
+        Toast.makeText(SearchResults.this, recipeName, Toast.LENGTH_SHORT).show();
+        query.equalTo("name", recipeName);
+        //query.equalTo("name", "beans");
         RealmResults<Recipe> result = query.findAll();
 
 
