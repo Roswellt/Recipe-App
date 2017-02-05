@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         Realm realm = Realm.getDefaultInstance();
-
         //Adding recipes to the database
 
         Recipe beans = new Recipe("beans", 10);
@@ -26,9 +27,15 @@ public class MainActivity extends AppCompatActivity {
         realm.copyToRealm(beans);
         realm.commitTransaction();
 
+        //Testing query
+        RealmQuery<Recipe> query = realm.where(Recipe.class);
+        query.equalTo("name", "beans");
+        RealmResults<Recipe> result = query.findAll();
+
+
         setContentView(R.layout.activity_main);
-        //CustomAdapter adapter = new CustomAdapter(this, recipes);
+        CustomAdapter adapter = new CustomAdapter(this, result);
         ListView listView = (ListView) findViewById(R.id.list);
-        //listView.setAdapter(adapter);
+        listView.setAdapter(adapter);
     }
 }

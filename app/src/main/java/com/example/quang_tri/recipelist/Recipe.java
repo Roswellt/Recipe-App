@@ -15,6 +15,8 @@ public class Recipe extends RealmObject{
         this.cookTime = cookTime;
     }
 
+    public Recipe(){}
+
     public String getName() {
         return name;
     }
