@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
                     public void onClick(View v){
                 Intent intent = new Intent("com.example.quang_tri.recipelist.SearchResults");
-                intent.putExtra("recipe", searchString.getText().toString());
+                //intent.putExtra("recipe", searchString.getText().toString());
                 startActivity(intent);
             }
         });

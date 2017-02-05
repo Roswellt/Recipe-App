@@ -51,10 +51,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:text="Enter ingredients"
                 android:ems="10"
                 android:id="@+id/searchInput"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:hint="Enter ingredients" />
         </LinearLayout>
 
         <LinearLayout

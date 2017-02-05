@@ -19,8 +19,9 @@ public class SearchResults extends AppCompatActivity {
 
         //Testing query
         RealmQuery<Recipe> query = realm.where(Recipe.class);
-        String recipeName = getIntent().getStringExtra("recipe");
-        query.equalTo("name", recipeName);
+        //String recipeName = getIntent().getStringExtra("recipe");
+        //query.equalTo("name", recipeName);
+        query.equalTo("name", "beans");
         RealmResults<Recipe> result = query.findAll();
 
 
