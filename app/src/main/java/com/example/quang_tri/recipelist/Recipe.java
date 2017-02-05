@@ -1,5 +1,6 @@
 package com.example.quang_tri.recipelist;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 /**
@@ -7,12 +8,15 @@ import io.realm.RealmObject;
  */
 
 public class Recipe extends RealmObject{
-    public String name;
-    public int cookTime;
+    private String name;
+    private int cookTime;
+    private RealmList<Ingredient> ingredients;
 
     public Recipe(String name, int cookTime){
         this.name = name;
         this.cookTime = cookTime;
+        ingredients = new RealmList<Ingredient>();
+
     }
 
     public Recipe(){}
