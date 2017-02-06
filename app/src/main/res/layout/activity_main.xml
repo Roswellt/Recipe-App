@@ -54,7 +54,7 @@
                 android:ems="10"
                 android:id="@+id/searchInput"
                 android:layout_weight="1"
-                android:hint="Enter ingredients" />
+                android:hint="Search recipes" />
         </LinearLayout>
 
         <LinearLayout
