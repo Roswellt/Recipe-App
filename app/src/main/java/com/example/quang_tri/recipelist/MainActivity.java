@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -18,7 +19,7 @@ import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button searchRecipeButton, addRecipeButton, searchIngredientsButton;
+    private Button searchRecipeButton, addRecipeButton, searchIngredientsButton, debugButton;
     private EditText searchString, ingredientSearchString;
 
     @Override
@@ -69,6 +70,19 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("searchType", "Ingredient Search");
                         intent.putExtra("ingredients", ingredientSearchString.getText().toString());
                         startActivity(intent);
+                    }
+                }
+        );
+        debugButton = (Button) findViewById(R.id.debugButton);
+        debugButton.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Realm realm = Realm.getDefaultInstance();
+                        Toast.makeText(MainActivity.this, "DB cleared", Toast.LENGTH_SHORT).show();
+                        realm.beginTransaction();
+                        realm.deleteAll();
+                        realm.commitTransaction();
                     }
                 }
         );

@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 
 public class AddRecipe extends AppCompatActivity {
 
@@ -40,7 +42,7 @@ public class AddRecipe extends AppCompatActivity {
                         Recipe newRecipe = new Recipe(recipeName.getText().toString(), Integer.parseInt(cookTime.getText().toString()));
                         addIngredients(newRecipe);
                         realm.beginTransaction();
-                        realm.copyToRealm(newRecipe);
+                        realm.copyToRealmOrUpdate(newRecipe);
                         realm.commitTransaction();
 
                         //Visual confirmation and return to main screen
@@ -65,6 +67,7 @@ public class AddRecipe extends AppCompatActivity {
     private void addIngredients(Recipe recipe){
         EditText ingredientsIn = (EditText) findViewById(R.id.ingredientIn);
         String[] ingredients = ingredientsIn.getText().toString().split(",");
+        //RealmQuery<Ingredient> query = realm.where(Ingredient.class);
         for(String x : ingredients){
             Ingredient newIn = new Ingredient(x.trim().toLowerCase());
             recipe.addIngredient(newIn);
