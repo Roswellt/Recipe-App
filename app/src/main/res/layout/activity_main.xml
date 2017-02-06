@@ -39,13 +39,13 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_weight="1"
-                android:layout_height="150dp" />
+                android:layout_height="70dp" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="wrap_content">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -60,13 +60,14 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp">
 
             <Button
-                android:text="Search"
+                android:text="Search recipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/searchButton"
+                android:id="@+id/searchRecipeButton"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -76,10 +77,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Space
+            <EditText
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/ingredientIn"
                 android:layout_weight="1"
-                android:layout_height="50dp" />
+                android:hint="Search by ingredients" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp">
+
+            <Button
+                android:text="Search ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ingredientsSearchButton"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout

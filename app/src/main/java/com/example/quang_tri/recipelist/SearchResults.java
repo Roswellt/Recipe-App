@@ -18,16 +18,20 @@ public class SearchResults extends AppCompatActivity {
 
         Realm realm = Realm.getDefaultInstance();
 
+
         //Testing query
-        RealmQuery<Recipe> query = realm.where(Recipe.class);
-        String recipeName = getIntent().getStringExtra("recipe");
-        Toast.makeText(SearchResults.this, recipeName, Toast.LENGTH_SHORT).show();
-        query.equalTo("name", recipeName);
-        RealmResults<Recipe> result = query.findAll();
+        if(getIntent().getStringExtra("searchType").equals("Recipe Search")) {
+            RealmQuery<Recipe> query = realm.where(Recipe.class);
+            String recipeName = getIntent().getStringExtra("recipe");
+            Toast.makeText(SearchResults.this, recipeName, Toast.LENGTH_SHORT).show();
+            query.equalTo("name", recipeName);
+            RealmResults<Recipe> result = query.findAll();
 
-
-        CustomAdapter adapter = new CustomAdapter(this, result);
-        ListView listView = (ListView) findViewById(R.id.list);
-        listView.setAdapter(adapter);
+            CustomAdapter adapter = new CustomAdapter(this, result);
+            ListView listView = (ListView) findViewById(R.id.list);
+            listView.setAdapter(adapter);
+        } else if(getIntent().getStringExtra("searchType").equals("Ingredient Search")){
+            //TODO
+        }
     }
 }

@@ -18,9 +18,8 @@ import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button searchButton;
-    private EditText searchString;
-    private Button addRecipeButton;
+    private Button searchRecipeButton, addRecipeButton, searchIngredientsButton;
+    private EditText searchString, ingredientSearchString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +39,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setButtonListener(){
-        searchButton = (Button) findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(
+        searchRecipeButton = (Button) findViewById(R.id.searchRecipeButton);
+        searchRecipeButton.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
                         Intent intent = new Intent("com.example.quang_tri.recipelist.SearchResults");
+                        intent.putExtra("searchType", "Recipe Search");
                         intent.putExtra("recipe", searchString.getText().toString());
                         startActivity(intent);
             }
@@ -60,9 +60,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        searchIngredientsButton = (Button) findViewById(R.id.ingredientsSearchButton);
+        searchIngredientsButton.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intent = new Intent("com.example.quang_tri.recipelist.SearchResults");
+                        intent.putExtra("searchType", "Ingredient Search");
+                        intent.putExtra("ingredients", ingredientSearchString.getText().toString());
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 
     public void setEditText(){
         searchString = (EditText) findViewById(R.id.searchInput);
+        ingredientSearchString = (EditText) findViewById(R.id.ingredientIn);
     }
 }
