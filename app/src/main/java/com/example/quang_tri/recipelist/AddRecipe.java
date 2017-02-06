@@ -33,13 +33,16 @@ public class AddRecipe extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
+
                         //Adding recipes to the database
                         EditText recipeName = (EditText) findViewById(R.id.recipeNameIn);
                         EditText cookTime = (EditText) findViewById(R.id.cookTimeIn);
                         Recipe newRecipe = new Recipe(recipeName.getText().toString(), Integer.parseInt(cookTime.getText().toString()));
+                        addIngredients(newRecipe);
                         realm.beginTransaction();
                         realm.copyToRealm(newRecipe);
                         realm.commitTransaction();
+
                         //Visual confirmation and return to main screen
                         Toast.makeText(AddRecipe.this, recipeName.getText().toString()+ " added", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent("com.example.quang_tri.recipelist.MainActivity");
@@ -57,5 +60,14 @@ public class AddRecipe extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    private void addIngredients(Recipe recipe){
+        EditText ingredientsIn = (EditText) findViewById(R.id.ingredientIn);
+        String[] ingredients = ingredientsIn.getText().toString().split(",");
+        for(String x : ingredients){
+            Ingredient newIn = new Ingredient(x);
+            recipe.addIngredient(newIn);
+        }
     }
 }
