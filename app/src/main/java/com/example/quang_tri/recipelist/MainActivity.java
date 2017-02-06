@@ -78,4 +78,5 @@ public class MainActivity extends AppCompatActivity {
         searchString = (EditText) findViewById(R.id.searchInput);
         ingredientSearchString = (EditText) findViewById(R.id.ingredientIn);
     }
+
 }

@@ -66,7 +66,7 @@ public class AddRecipe extends AppCompatActivity {
         EditText ingredientsIn = (EditText) findViewById(R.id.ingredientIn);
         String[] ingredients = ingredientsIn.getText().toString().split(",");
         for(String x : ingredients){
-            Ingredient newIn = new Ingredient(x);
+            Ingredient newIn = new Ingredient(x.trim().toLowerCase());
             recipe.addIngredient(newIn);
         }
     }

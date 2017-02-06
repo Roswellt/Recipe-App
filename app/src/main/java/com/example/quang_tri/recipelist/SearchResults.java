@@ -31,7 +31,16 @@ public class SearchResults extends AppCompatActivity {
             ListView listView = (ListView) findViewById(R.id.list);
             listView.setAdapter(adapter);
         } else if(getIntent().getStringExtra("searchType").equals("Ingredient Search")){
-            //TODO
+            RealmQuery<Recipe> query = realm.where(Recipe.class);
+            RealmResults<Recipe> results = query.findAll();
+            String ingredients = getIntent().getStringExtra("ingredients");
+            String[] ingredientList = ingredients.split(",");
+            for(String x : ingredientList){
+                results = query.equalTo("ingredients.name", x.trim().toLowerCase()).findAll();
+            }
+            CustomAdapter adapter = new CustomAdapter(this, results);
+            ListView listView = (ListView) findViewById(R.id.list);
+            listView.setAdapter(adapter);
         }
     }
 }

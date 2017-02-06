@@ -71,13 +71,21 @@
                 android:hint="Recipe Name" />
 
             <EditText
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
                 android:id="@+id/cookTimeIn"
                 android:layout_weight="1"
-                android:hint="Cook Time" />
+                android:hint="Cook Time"
+                android:layout_width="100dp" />
+
+            <TextView
+                android:text="min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/min"
+                android:layout_weight="1"
+                android:textColor="@android:color/background_dark" />
 
         </LinearLayout>
 
