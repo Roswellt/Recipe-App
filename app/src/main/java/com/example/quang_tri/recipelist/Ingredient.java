@@ -21,4 +21,5 @@ public class Ingredient extends RealmObject {
     public void setName(String name) {
         this.name = name;
     }
+    public Ingredient(){}
 }
