@@ -37,7 +37,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecipeLayout"></activity>
+        <activity android:name=".RecipeLayout">
+            <intent-filter>
+                <action android:name="com.example.quang_tri.recipelist.RecipeLayout" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
