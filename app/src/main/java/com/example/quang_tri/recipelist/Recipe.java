@@ -1,5 +1,7 @@
 package com.example.quang_tri.recipelist;
 
+import android.graphics.Bitmap;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -10,6 +12,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Recipe extends RealmObject{
     private String name;
+    private Bitmap picture;
     private RealmList<Ingredient> ingredients;
     @PrimaryKey
     private int cookTime;
@@ -44,5 +47,13 @@ public class Recipe extends RealmObject{
 
     public void addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
+    }
+
+    public Bitmap getPicture() {
+        return picture;
+    }
+
+    public void setPicture(Bitmap picture) {
+        this.picture = picture;
     }
 }

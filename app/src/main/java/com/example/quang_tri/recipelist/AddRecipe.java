@@ -2,6 +2,7 @@ package com.example.quang_tri.recipelist;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
@@ -25,6 +26,7 @@ public class AddRecipe extends AppCompatActivity {
 
     private ImageButton saveRecipeButton, returnButton;
     private ImageView imageButton;
+    private Bitmap recipePic;
     private Realm realm;
     private static int RESULT_LOAD_IMAGE = 1;
 
@@ -49,6 +51,7 @@ public class AddRecipe extends AppCompatActivity {
                         EditText cookTime = (EditText) findViewById(R.id.cookTimeIn);
                         Recipe newRecipe = new Recipe(recipeName.getText().toString(), Integer.parseInt(cookTime.getText().toString()));
                         addIngredients(newRecipe);
+                        newRecipe.setPicture(recipePic);
                         realm.beginTransaction();
                         realm.copyToRealmOrUpdate(newRecipe);
                         realm.commitTransaction();
@@ -102,14 +105,13 @@ public class AddRecipe extends AppCompatActivity {
 
             ImageView imageView = (ImageView) findViewById(R.id.imageInButton);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-
+            recipePic = BitmapFactory.decodeFile(picturePath);
         }
     }
 
     private void addIngredients(Recipe recipe){
         EditText ingredientsIn = (EditText) findViewById(R.id.ingredientIn);
         String[] ingredients = ingredientsIn.getText().toString().split(",");
-        //RealmQuery<Ingredient> query = realm.where(Ingredient.class);
         for(String x : ingredients){
             Ingredient newIn = new Ingredient(x.trim().toLowerCase());
             recipe.addIngredient(newIn);

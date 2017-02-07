@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        //Clears realm database
         debugButton = (Button) findViewById(R.id.debugButton);
         debugButton.setOnClickListener(
                 new View.OnClickListener(){

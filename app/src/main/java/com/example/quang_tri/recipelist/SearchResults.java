@@ -21,6 +21,7 @@ public class SearchResults extends AppCompatActivity {
 
         //Testing query
         if(getIntent().getStringExtra("searchType").equals("Recipe Search")) {
+
             RealmQuery<Recipe> query = realm.where(Recipe.class);
             String recipeName = getIntent().getStringExtra("recipe");
             Toast.makeText(SearchResults.this, recipeName, Toast.LENGTH_SHORT).show();
@@ -30,7 +31,9 @@ public class SearchResults extends AppCompatActivity {
             CustomAdapter adapter = new CustomAdapter(this, result);
             ListView listView = (ListView) findViewById(R.id.list);
             listView.setAdapter(adapter);
+
         } else if(getIntent().getStringExtra("searchType").equals("Ingredient Search")){
+
             RealmQuery<Recipe> query = realm.where(Recipe.class);
             RealmResults<Recipe> results = query.findAll();
             String ingredients = getIntent().getStringExtra("ingredients");
@@ -41,6 +44,7 @@ public class SearchResults extends AppCompatActivity {
             CustomAdapter adapter = new CustomAdapter(this, results);
             ListView listView = (ListView) findViewById(R.id.list);
             listView.setAdapter(adapter);
+
         }
     }
 }
