@@ -16,116 +16,121 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="60dp"
+                    app:srcCompat="@android:drawable/ic_menu_revert"
+                    android:id="@+id/returnButton"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:layout_height="60dp" />
+
+                <Space
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_width="270dp" />
+
+                <ImageButton
+                    android:layout_width="60dp"
+                    app:srcCompat="@android:drawable/ic_menu_add"
+                    android:id="@+id/saveRecipeButton"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/background_light"
+                    android:layout_height="60dp"
+                    android:background="@android:color/transparent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/ic_menu_gallery"
+                    android:id="@+id/imageInButton"
+                    android:layout_weight="1"
+                    android:paddingBottom="70dp"
+                    android:paddingTop="70dp"
+                    android:clickable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp">
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/recipeNameIn"
+                    android:layout_weight="1"
+                    android:hint="Recipe Name" />
+
+                <EditText
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/cookTimeIn"
+                    android:layout_weight="1"
+                    android:hint="Cook Time"
+                    android:layout_width="35dp" />
+
+                <TextView
+                    android:text="min"
+                    android:id="@+id/min"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_dark"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_width="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="50dp">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/ingredientIn"
+                    android:layout_weight="1"
+                    android:hint="Enter ingredients (separated by a comma)" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:ems="10"
+                    android:id="@+id/instructionsIn"
+                    android:layout_weight="1"
+                    android:hint="Enter instructions" />
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageButton
-                android:layout_width="60dp"
-                app:srcCompat="@android:drawable/ic_menu_revert"
-                android:id="@+id/returnButton"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:layout_height="60dp" />
-
-            <Space
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_width="270dp" />
-
-            <ImageButton
-                android:layout_width="60dp"
-                app:srcCompat="@android:drawable/ic_menu_add"
-                android:id="@+id/saveRecipeButton"
-                android:layout_weight="1"
-                android:backgroundTint="@android:color/background_light"
-                android:layout_height="60dp"
-                android:background="@android:color/transparent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_gallery"
-                android:id="@+id/imageButton"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:paddingBottom="70dp"
-                android:paddingTop="70dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="20dp">
-
-            <EditText
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/recipeNameIn"
-                android:layout_weight="1"
-                android:hint="Recipe Name" />
-
-            <EditText
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
-                android:id="@+id/cookTimeIn"
-                android:layout_weight="1"
-                android:hint="Cook Time"
-                android:layout_width="25dp" />
-
-            <TextView
-                android:text="min"
-                android:id="@+id/min"
-                android:layout_weight="1"
-                android:textColor="@android:color/background_dark"
-                android:layout_height="30dp"
-                android:textSize="20sp"
-                android:layout_width="15dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/ingredientIn"
-                android:layout_weight="1"
-                android:hint="Enter ingredients (separated by a comma)" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </LinearLayout>
-    </LinearLayout>
 </RelativeLayout>
