@@ -14,13 +14,15 @@ public class Recipe extends RealmObject{
     private String name;
     private String picturePath;
     private RealmList<Ingredient> ingredients;
-    @PrimaryKey
     private int cookTime;
+    @PrimaryKey
+    private String instructions;
 
-    public Recipe(String name, int cookTime){
+    public Recipe(String name, int cookTime, String instructions){
         this.name = name;
         this.cookTime = cookTime;
         ingredients = new RealmList<Ingredient>();
+        this.instructions = instructions;
     }
 
     public Recipe(){}
@@ -55,5 +57,13 @@ public class Recipe extends RealmObject{
 
     public void setPicture(String picture) {
         this.picturePath = picture;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 }

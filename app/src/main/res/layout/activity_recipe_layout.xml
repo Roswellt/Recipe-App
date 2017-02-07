@@ -28,7 +28,7 @@
                 android:paddingBottom="30dp">
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/settings"
                     android:layout_weight="1" />
@@ -52,13 +52,13 @@
                     android:paddingRight="30dp" />
 
                 <TextView
-                    android:text="Cook"
-                    android:layout_width="50dp"
+                    android:text="50"
                     android:layout_height="wrap_content"
                     android:id="@+id/cookTime"
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:layout_width="15dp" />
 
                 <TextView
                     android:text="min"
@@ -88,7 +88,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingBottom="50dp">
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:text="Ingredients: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_weight="1"
+                    android:textSize="30sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingBottom="10dp">
 
                 <TextView
                     android:text="Ingredients here"
@@ -98,6 +115,22 @@
                     android:layout_weight="1"
                     android:textColor="@android:color/black"
                     android:textSize="20sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="Instructions: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView3"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp"/>
             </LinearLayout>
 
             <LinearLayout

@@ -1,5 +1,6 @@
 package com.example.quang_tri.recipelist;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +57,9 @@ public class SearchResults extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Recipe recipe = (Recipe) parent.getItemAtPosition(position);
                 Toast.makeText(SearchResults.this, recipe.getName(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent("com.example.quang_tri.recipelist.RecipeLayout");
+                intent.putExtra("recipe", recipe.getInstructions());
+                startActivity(intent);
             }
         });
     }
