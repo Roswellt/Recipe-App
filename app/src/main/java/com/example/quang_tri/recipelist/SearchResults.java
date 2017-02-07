@@ -2,14 +2,21 @@ package com.example.quang_tri.recipelist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmQuery;
 import io.realm.RealmResults;
 
 public class SearchResults extends AppCompatActivity {
+
+    private ListView listView;
+    private CustomAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +35,8 @@ public class SearchResults extends AppCompatActivity {
             query.equalTo("name", recipeName);
             RealmResults<Recipe> result = query.findAll();
 
-            CustomAdapter adapter = new CustomAdapter(this, result);
-            ListView listView = (ListView) findViewById(R.id.list);
-            listView.setAdapter(adapter);
+            adapter = new CustomAdapter(this, result);
+            listView = (ListView) findViewById(R.id.list);
 
         } else if(getIntent().getStringExtra("searchType").equals("Ingredient Search")){
 
@@ -41,10 +47,16 @@ public class SearchResults extends AppCompatActivity {
             for(String x : ingredientList){
                 results = query.equalTo("ingredients.name", x.trim().toLowerCase()).findAll();
             }
-            CustomAdapter adapter = new CustomAdapter(this, results);
-            ListView listView = (ListView) findViewById(R.id.list);
-            listView.setAdapter(adapter);
-
+            adapter = new CustomAdapter(this, results);
+            listView = (ListView) findViewById(R.id.list);
         }
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Recipe recipe = (Recipe) parent.getItemAtPosition(position);
+                Toast.makeText(SearchResults.this, recipe.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

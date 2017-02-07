@@ -12,7 +12,7 @@ import io.realm.annotations.PrimaryKey;
 
 public class Recipe extends RealmObject{
     private String name;
-    private Bitmap picture;
+    private String picturePath;
     private RealmList<Ingredient> ingredients;
     @PrimaryKey
     private int cookTime;
@@ -49,11 +49,11 @@ public class Recipe extends RealmObject{
         this.ingredients.add(ingredient);
     }
 
-    public Bitmap getPicture() {
-        return picture;
+    public String getPicture() {
+        return picturePath;
     }
 
-    public void setPicture(Bitmap picture) {
-        this.picture = picture;
+    public void setPicture(String picture) {
+        this.picturePath = picture;
     }
 }

@@ -26,7 +26,7 @@ public class AddRecipe extends AppCompatActivity {
 
     private ImageButton saveRecipeButton, returnButton;
     private ImageView imageButton;
-    private Bitmap recipePic;
+    private String recipePic;
     private Realm realm;
     private static int RESULT_LOAD_IMAGE = 1;
 
@@ -105,7 +105,7 @@ public class AddRecipe extends AppCompatActivity {
 
             ImageView imageView = (ImageView) findViewById(R.id.imageInButton);
             imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-            recipePic = BitmapFactory.decodeFile(picturePath);
+            recipePic = picturePath;
         }
     }
 
