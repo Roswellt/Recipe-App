@@ -50,7 +50,7 @@ public class AddRecipe extends AppCompatActivity {
                         EditText recipeName = (EditText) findViewById(R.id.recipeNameIn);
                         EditText cookTime = (EditText) findViewById(R.id.cookTimeIn);
                         EditText instructions = (EditText) findViewById(R.id.instructionsIn);
-                        Recipe newRecipe = new Recipe(recipeName.getText().toString(), Integer.parseInt(cookTime.getText().toString()), instructions.getText().toString());
+                        Recipe newRecipe = new Recipe(recipeName.getText().toString().trim(), Integer.parseInt(cookTime.getText().toString()), instructions.getText().toString());
                         addIngredients(newRecipe);
                         newRecipe.setPicture(recipePic);
                         realm.beginTransaction();

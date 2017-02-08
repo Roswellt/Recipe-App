@@ -2,12 +2,14 @@ package com.example.quang_tri.recipelist;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -39,9 +41,11 @@ public class CustomAdapter extends RealmBaseAdapter<Recipe> implements ListAdapt
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.list_single, null, true);
         TextView text = (TextView) rowView.findViewById(R.id.txt);
+        ImageView recipePic = (ImageView) rowView.findViewById(R.id.recipePic);
 
-        Recipe food = recipes.get(position);
-        text.setText(food.getName());
+        Recipe recipe = recipes.get(position);
+        text.setText(recipe.getName());
+        recipePic.setImageBitmap(BitmapFactory.decodeFile(recipe.getPicture()));
 
         return rowView;
     }
