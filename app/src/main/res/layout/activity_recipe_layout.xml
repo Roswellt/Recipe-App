@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@mipmap/gradient"
+    android:background="@mipmap/kitchen"
     tools:context="com.example.quang_tri.recipelist.RecipeLayout">
 
     <ScrollView
